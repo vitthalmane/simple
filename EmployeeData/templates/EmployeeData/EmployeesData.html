@@ -3,39 +3,31 @@
 <html>
 <head>
   <title>EmployeeData</title>
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  text-align: center;
-  width: 70%;
-}
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-  width: 25%;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
-<link rel="stylesheet" type="text/css" href="{%static 'EmployeeData/css/style.css' %} " >
+   <link rel="stylesheet" type="text/css" href="{%static 'EmployeeData/css/style.css' %} " >
 </head>
-<body>
 
+<body>
+    <div class="topnav">
+        <a href="{%url 'logout' %}"><font color="red">Log out</font></a>
+        <a class="active" href="#home" name="user"> Log In : {{request.user.username }} </a>
+        <a href="{%url 'empData' %}" >Registered Employee List</a>
+					<a href="{%url 'EmpReg' %}" >HOME</a>
+    </div>
+    
 <br>
-<table><center> <h1>Employee Data</h1></center><br>
+<table align="center"><center> <h1>Employee  Data</h1></center><br>
   <tr>
+      <th>Emp ID</th>
     <th>Employee Name</th>
     <th>Email</th>
     <th>Phone Number</th>
-<th> Department</th>
+    <th> Department</th>
   </tr>
+  
   {% for stored_empData in Emp_savedData %}
   <tr>
+    <td>{{ stored_empData.ID}}</td>
     <td>{{ stored_empData.Emp_name}}</td>
     <td>{{ stored_empData.Emp_email}} </td>
     <td>{{ stored_empData.Emp_phonNO}}</td> 

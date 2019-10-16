@@ -6,11 +6,19 @@
       <link rel="stylesheet" type="text/css" href="{%static 'EmployeeData/css/style.css' %} " >
     </head>
     <body>
+			<div class="topnav">
+					<a href="{%url 'logout' %}"><font color="red">Log out</font></a>
+					<a class="active" href="#home" name="user"> Log In : {{request.user.username }} </a>
+				
+					<a href="{%url 'empData' %}" >Registered Employee List</a>
+					<a href="{%url 'EmpReg' %}" >HOME</a>
+			</div>
+
 	<script src="{%static 'EmployeeData/validateEmpRegstForm.js' %}"></script>
 
-      <div class="header">
+      	<div class="header">
 	     <h2>Employee Registration Form</h2>
-		</div>
+	  	</div>
 		<form name="myForm" onsubmit="return validateForm()" method="post" action= ' {% url 'SaveEmpData' %} '> {% csrf_token %}
 		<div class="input-group">
 		<label><i>Employee Name:<font color="red">*<span id="uname"></span></font></i></label>

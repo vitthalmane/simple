@@ -1,38 +1,92 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from .models import EmpData
-
+from django.views import View
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate ,login,logout
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 # Create your views here.
-def EmpReg(request):#Showing registration page 
-    return render(request,"EmployeeData/registration.html")
+
+class StaffLogin(View):     #login class
+
+    def get(self,request,*args,**kwargs):       #if request is get
+        return render(request,"EmployeeData/stafflogin.html")
 
     
-def DisplayEmpData(request): #for displaying employee detail from database
-    all_Emp_data=EmpData.objects.all()
-        #return HttpResponse("Success")
-    return render(request,"EmployeeData/EmployeesData.html",{'Emp_savedData':all_Emp_data})
-    
-
-def SaveEmpData(request):#for saving employee data into database
-    #if (request.method=='POST'):
-    empName=request.POST.get('emp_name','NA')
-    emailadd=request.POST.get('email','NA')
-    phoneNo=request.POST.get('mob_no','00')
-    department=request.POST.get('department','NA')
+    def post(self,request,*args,**kwargs):      #if request is post
+        uname=request.POST.get('username')
+        password=request.POST.get('password')
+        print(uname,password)
         
-    if(request.POST.get('department','NA')==""):
-        department="NA"
-    print(empName,emailadd,phoneNo,department)
-    obj=EmpData(Emp_name=empName,Emp_email=emailadd,Emp_phonNO=phoneNo,Emp_dept=department)     #database object
-    obj.save()
+        staff=authenticate(request,username=uname,password=password)
+        if staff:
+            login(request,staff)
+            #print(uname,password)
+
+            return redirect(EmpReg)         #redirect page to home page or registration page
+
+        else:
+        
+            return render(request,"EmployeeData/StaffLogin.html",{'error':"Wrong username or password"}) 
+            # return same page if invalid credential
+
+
+@login_required(login_url="StaffLogin")  #decorator foruser is login or not
+def EmpReg(request) :#Showing registration page 
     
-       
-    #request.method=="GET"
-    
-        #return HttpResponse("Success")
-    all_Emp_data=EmpData.objects.all()
-    return redirect(DisplayEmpData)     #redirect to Database page
-    #return render(request,"EmployeeData/EmployeesData.html",{'Emp_savedData':all_Emp_data})
+    return render(request,"EmployeeData/registration.html")   
+
 
     
+class LoginRequiredMixin(object): 
+    @method_decorator(login_required)
+    def dispatch(self,*args,**kwargs):
+        return super(LoginRequiredMixin,self).dispatch(*args,**kwargs)
 
+class DisplayEmpData(LoginRequiredMixin,View):
+    #print(user.username)
+    login_url="StaffLogin"
+
+    @method_decorator(login_required)
+    def get(self,request,*args,**kwargs): #for displaying employee detail from database get request
+        #print("HHHHHHHHH")
+        all_Emp_data=EmpData.objects.all()
+        for i in all_Emp_data:
+            print(i.ID)
+
+        #return all employee data which will be stored till now
+        return render(request,"EmployeeData/EmployeesData.html",{'Emp_savedData':all_Emp_data})
+
+    
+         
+class SaveEmpData(View):            #for saving employee data into database
+    #if (request.method=='POST'):
+    def post(self,request,*args,**kwargs):  #save data if request is post
+
+        try:
+            empName=request.POST.get('emp_name','NA')
+            emailadd=request.POST.get('email','NA')
+            phoneNo=request.POST.get('mob_no','00')
+            department=request.POST.get('department','NA')
+                
+            if(request.POST.get('department','NA')==""):
+                department="NA"
+            print(empName,emailadd,phoneNo,department)
+
+            obj=EmpData(Emp_name=empName,Emp_email=emailadd,Emp_phonNO=phoneNo,Emp_dept=department)     #database object
+            obj.save()
+            return redirect("empData") 
+
+        except:
+                return HttpResponse("Try again")
+        
+    def get(self,request,*args,**kwargs):       #get request
+        return redirect("EmpReg")
+
+
+      
+@login_required(login_url="StaffLogin")     #decorator
+def logout1(request):                       #for logout
+    logout(request)
+    return redirect("StaffLogin")
