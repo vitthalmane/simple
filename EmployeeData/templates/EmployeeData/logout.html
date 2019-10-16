@@ -11,13 +11,16 @@
       <div class="header">
 	     <h2>Staff Login</h2>
 		</div>
+
 		<form name="myForm" onsubmit="" method="post" action= ''> 
 			{% csrf_token %}
 		<font color="red"><span>{{error}}</span></font><br>	
 		<div class="input-group">
+
 		<label><i>Username:<font color="red">*<span id="username"></span></font></i></label>
 		<input type="text" name="username" required >
 		</div>
+
 	 <div class="input-group">
 		<label><i>Password:<font color="red">*<span id="password"></span></font></i></label>
 		<input type="text" name="password" required >
@@ -29,6 +32,6 @@
 		
 		</form>
 	
-    </body>`
+    </body>
 
   </html>

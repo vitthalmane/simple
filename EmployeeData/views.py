@@ -52,11 +52,11 @@ class DisplayEmpData(LoginRequiredMixin,View):
     def get(self,request,*args,**kwargs): #for displaying employee detail from database get request
         #print("HHHHHHHHH")
         all_Emp_data=EmpData.objects.all()
-        for i in all_Emp_data:
-            print(i.ID)
+        SerNo=len(all_Emp_data)
+        
 
         #return all employee data which will be stored till now
-        return render(request,"EmployeeData/EmployeesData.html",{'Emp_savedData':all_Emp_data})
+        return render(request,"EmployeeData/EmployeesData.html",{'Emp_savedData':all_Emp_data,'serno':SerNo})
 
     
          
