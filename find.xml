@@ -10,5 +10,6 @@
     <mask>*.html</mask>
     <mask>*.js</mask>
     <mask>*.py</mask>
+    <mask>*nents.js</mask>
   </component>
 </application>
