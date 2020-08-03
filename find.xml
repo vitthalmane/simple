@@ -7,9 +7,9 @@
     <mask>*.xml</mask>
     <mask>urls.py</mask>
     <mask>view.py</mask>
-    <mask>*.html</mask>
     <mask>*nents.js</mask>
     <mask>*.js</mask>
     <mask>*.py</mask>
+    <mask>*.html</mask>
   </component>
 </application>
