@@ -8,8 +8,8 @@
     <mask>urls.py</mask>
     <mask>view.py</mask>
     <mask>*nents.js</mask>
-    <mask>*.html</mask>
     <mask>*.js</mask>
     <mask>*.py</mask>
+    <mask>*.html</mask>
   </component>
 </application>
