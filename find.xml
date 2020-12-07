@@ -8,9 +8,9 @@
     <mask>urls.py</mask>
     <mask>view.py</mask>
     <mask>*nents.js</mask>
-    <mask>*.html</mask>
     <mask>*ers.py</mask>
     <mask>*.js</mask>
+    <mask>*.html</mask>
     <mask>*.py</mask>
   </component>
 </application>
