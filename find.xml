@@ -10,7 +10,7 @@
     <mask>*nents.js</mask>
     <mask>*ers.py</mask>
     <mask>*.js</mask>
-    <mask>*.html</mask>
     <mask>*.py</mask>
+    <mask>*.html</mask>
   </component>
 </application>
