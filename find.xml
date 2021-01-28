@@ -11,7 +11,7 @@
     <mask>*ers.py</mask>
     <mask>*.html</mask>
     <mask>*.txt</mask>
-    <mask>*.js</mask>
     <mask>*.py</mask>
+    <mask>*.js</mask>
   </component>
 </application>
