@@ -13,7 +13,7 @@
     <mask>*.txt</mask>
     <mask>urls.py</mask>
     <mask>*.js</mask>
-    <mask>*.py</mask>
     <mask>*.html</mask>
+    <mask>*.py</mask>
   </component>
 </application>
