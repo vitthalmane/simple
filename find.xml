@@ -11,7 +11,7 @@
     <mask>urls.py</mask>
     <mask>*.js</mask>
     <mask>*.txt</mask>
-    <mask>*.html</mask>
     <mask>*.py</mask>
+    <mask>*.html</mask>
   </component>
 </application>
