@@ -3,7 +3,7 @@
     <option name="customScope" value="All Places" />
     <option name="defaultScopeName" value="All Places" />
     <option name="SEARCH_SCOPE" value="All Places" />
-    <mask>*.css</mask>
+    <option name="FILE_MASK" value="*.css" />
     <mask>*.xml</mask>
     <mask>view.py</mask>
     <mask>*nents.js</mask>
@@ -14,5 +14,6 @@
     <mask>*.js</mask>
     <mask>*constants.py</mask>
     <mask>*.py</mask>
+    <mask>*.css</mask>
   </component>
 </application>
