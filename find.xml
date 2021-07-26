@@ -9,10 +9,10 @@
     <mask>*ers.py</mask>
     <mask>urls.py</mask>
     <mask>*.txt</mask>
-    <mask>*.js</mask>
     <mask>*constants.py</mask>
     <mask>*.css</mask>
     <mask>*.py</mask>
     <mask>*.html</mask>
+    <mask>*.js</mask>
   </component>
 </application>
