@@ -10,10 +10,10 @@
     <mask>urls.py</mask>
     <mask>*.txt</mask>
     <mask>*constants.py</mask>
-    <mask>*.css</mask>
     <mask>c</mask>
     <mask>*.py</mask>
     <mask>*.js</mask>
     <mask>*.html</mask>
+    <mask>*.css</mask>
   </component>
 </application>
