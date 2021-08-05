@@ -11,9 +11,9 @@
     <mask>*.txt</mask>
     <mask>*constants.py</mask>
     <mask>c</mask>
-    <mask>*.js</mask>
     <mask>*.html</mask>
     <mask>*.css</mask>
     <mask>*.py</mask>
+    <mask>*.js</mask>
   </component>
 </application>
