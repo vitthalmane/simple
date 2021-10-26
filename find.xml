@@ -13,7 +13,7 @@
     <mask>c</mask>
     <mask>*.css</mask>
     <mask>*.html</mask>
-    <mask>*.py</mask>
     <mask>*.js</mask>
+    <mask>*.py</mask>
   </component>
 </application>
