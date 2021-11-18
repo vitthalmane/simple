@@ -12,8 +12,8 @@
     <mask>*constants.py</mask>
     <mask>c</mask>
     <mask>*.css</mask>
-    <mask>*.js</mask>
     <mask>*.html</mask>
     <mask>*.py</mask>
+    <mask>*.js</mask>
   </component>
 </application>
